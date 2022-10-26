@@ -1,25 +1,26 @@
 // step 1: grab the input
 // When click the go button, event starts
 
-document.querySelector('.js-go').addEventListener('click', function() {
+let button = document.querySelector('.js-go')
+button.addEventListener('click', function() {
     var input = document.querySelector("input").value;
     getInput(input);
 })
 
 // When press Enter, event listener works
 
-document.querySelector('.js-userinput').addEventListener('keyup', function(e) {
+let inputField = document.querySelector('.js-userinput');
+inputField.addEventListener('keypress', function(e) {
   
     var input = document.querySelector("input").value;
+
     // if the key ENTER is pressed
-    if(e.which === 13) {
-        pushToDOM(input);
+    if(e.key === 'Enter') {
+        getInput(input);
     }
-})
+});
 
 // step 2: get the data from the API
-
-// let url = `https://api.giphy.com/v1/gifs/search?q=${input}&api_key=8oRnLZNhKAI04ZewDj6hurUt9Z4evOom`;
 
 function getInput(userinput) {
     var search = userinput.split(' ').join('+')
